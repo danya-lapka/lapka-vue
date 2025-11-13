@@ -1,35 +1,34 @@
-# lapka
+# Lapka
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Recommended Browser Setup
-
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
+This is a portfolio website project built with Vue 3, Vite, and TypeScript.
 
 ## Project Setup
 
-```sh
-npm install
-```
+### Prerequisites
+
+- Node.js (version specified in `package.json`: `^20.19.0 || >=22.12.0`)
+- npm (or your preferred package manager)
+
+### Installation
+
+1.  Clone the repository:
+    ```sh
+    git clone <repository-url>
+    ```
+2.  Navigate to the project directory:
+    ```sh
+    cd lapka
+    ```
+3.  Install the dependencies:
+    ```sh
+    npm install
+    ```
+
+## Development
 
 ### Compile and Hot-Reload for Development
+
+To start the development server with hot-reloading, run:
 
 ```sh
 npm run dev
@@ -37,6 +36,63 @@ npm run dev
 
 ### Type-Check, Compile and Minify for Production
 
+To build the project for production, run:
+
 ```sh
 npm run build
+```
+
+This command will also perform a type-check before building.
+
+### Preview the Production Build
+
+To preview the production build locally, run:
+
+```sh
+npm run preview
+```
+
+## Linting
+
+This project uses ESLint and oxlint for code linting.
+
+To run the linters and automatically fix issues, use:
+
+```sh
+npm run lint
+```
+
+You can also run the linters individually:
+
+```sh
+npm run lint:eslint
+npm run lint:oxlint
+```
+
+## Technologies Used
+
+-   **Framework:** [Vue 3](https://vuejs.org/)
+-   **Build Tool:** [Vite](https://vitejs.dev/)
+-   **Language:** [TypeScript](https://www.typescriptlang.org/)
+-   **Routing:** [Vue Router](https://router.vuejs.org/)
+-   **State Management:** [Pinia](https://pinia.vuejs.org/)
+-   **Styling:** [Sass](https://sass-lang.com/)
+-   **Linting:** [ESLint](https://eslint.org/), [oxlint](https://oxc-project.github.io/docs/linter/introduction.html)
+
+## Project Structure
+
+```
+.
+├── public/              # Static assets
+├── src/
+│   ├── assets/          # Assets like images, fonts, and icons
+│   ├── components/      # Reusable Vue components
+│   ├── data/            # Static data
+│   ├── pages/           # Page components
+│   ├── router/          # Vue Router configuration
+│   ├── stores/          # Pinia stores
+│   └── ui/              # UI library components and styles
+├── index.html           # Main HTML file
+├── vite.config.ts       # Vite configuration
+└── package.json         # Project dependencies and scripts
 ```
