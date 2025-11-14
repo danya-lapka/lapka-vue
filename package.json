@@ -14,8 +14,7 @@
     "type-check": "vue-tsc --build",
     "lint:oxlint": "oxlint . --fix -D correctness --ignore-path .gitignore",
     "lint:eslint": "eslint . --fix --cache",
-    "lint": "run-s lint:*",
-    "postinstall": "if [ \"$CI\" != \"true\" ]; then echo 'Consider installing rolldown-vite for local development'; fi"
+    "lint": "run-s lint:*"
   },
   "dependencies": {
     "@vueuse/core": "^14.0.0",
