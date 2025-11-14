@@ -1,9 +1,9 @@
 <template>
   <header class="f-r p-top-12 p-bottom-11 a-center j-between pos-fixed bg-black color-gray-3 a-top-0">
-    <LinkRouter href="/" color="white" target="_self" text="h-2"><LogoText /></LinkRouter>
+    <LinkRouter href="/" color="white" target="_self" class="h-2"><LogoText /></LinkRouter>
     <ul class="f-r g-32">
       <li v-for="p in pages" :key="p.path">
-        <LinkRouter text="b-4" target="_self" :href="p.path" color="white">{{ p.name }}</LinkRouter>
+        <LinkRouter class="b-4" target="_self" :href="p.path" color="white">{{ p.name }}</LinkRouter>
       </li>
     </ul>
   </header>

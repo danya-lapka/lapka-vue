@@ -1,7 +1,7 @@
 <template>
   <section class="f-c g-32">
     <h1 class="h-1">Скиллы <span class="b-1">так называемые</span></h1>
-    <div class="gm-3-24">
+    <div :class="computedClasses">
       <CardSkill v-for="s in skills" :key="s.name">
         <template #name>
           <SvgIcon class="h-2" :name="s.icon" />{{ s.name }}
@@ -14,7 +14,14 @@
 
 <script setup lang="ts">
 import { CardSkill } from '@/components';
-import { SvgIcon } from '@/ui';
+import { SvgIcon, WindowSize } from '@/ui';
+import { computed } from 'vue';
+
+const computedClasses = computed(() => ({
+  ['gm-3-24']: ['Lg','Bg'].includes(WindowSize.value),
+  ['gm-2-24']: ['Md'].includes(WindowSize.value),
+  ['gm-1-24']: ['Sm', 'Xs'].includes(WindowSize.value)
+}))
 
 const skills: {
   name: string,

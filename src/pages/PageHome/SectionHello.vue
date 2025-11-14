@@ -1,5 +1,5 @@
 <template>
-  <section class="hello f-r">
+  <section class="hello" :class="computedClasses">
     <div class="hello-text f-c g-16">
       <h1 class="h-1">Всем мяу <span class="b-1">:3</span></h1>
       <div class="b-4">
@@ -15,12 +15,19 @@
 </template>
 
 <script setup lang="ts">
-import { LinkBase } from '@/ui';
+import { LinkBase, WindowSize } from '@/ui';
+import { computed } from 'vue';
+
+const computedClasses = computed(() => ({
+  ['f-r']: ['Lg','Bg','Md'].includes(WindowSize.value),
+  ['f-c a-center']: ['Sm','Xs'].includes(WindowSize.value)
+}))
 </script>
 
 <style scoped>
 .hello-image {
-  aspect-ratio: 282/374;
-  height: 100%;
+  aspect-ratio: 282/384;
+  max-width: 282px;
+  max-height: 384px;
 }
 </style>
