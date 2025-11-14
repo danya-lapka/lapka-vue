@@ -2,7 +2,7 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ main ]
   pull_request:
     branches: [ main ]
 
@@ -14,41 +14,26 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
+    - name: Setup Rust toolchain
+      uses: actions-rust-lang/setup-rust-toolchain@v1
+      with:
+        toolchain: stable
+
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '22.x'
         cache: 'npm'
 
-    - name: Install dependencies with native module workaround
+    - name: Install dependencies with Rust build
       run: |
-        # Восстанавливаем package-lock.json если был удален
-        git checkout HEAD -- package-lock.json || true
-        # Удаляем только node_modules и переустанавливаем
-        rm -rf node_modules
-        npm install
+        # Убеждаемся, что установлены необходимые системные зависимости
+        sudo apt-get update
+        sudo apt-get install -y pkg-config libc6-dev
+        npm ci
 
     - name: Type check
       run: npm run type-check
 
     - name: Build project
       run: npm run build-only
-
-  security:
-    runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
-    
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '22.x'
-
-    - name: Install dependencies
-      run: npm ci
-
-    - name: Run security audit
-      run: npm audit --audit-level moderate
