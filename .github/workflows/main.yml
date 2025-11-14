@@ -20,10 +20,13 @@ jobs:
         node-version: '22.x'
         cache: 'npm'
 
-    - name: Clean install dependencies
+    - name: Install dependencies with native module workaround
       run: |
-        rm -rf node_modules package-lock.json
-        npm ci
+        # Восстанавливаем package-lock.json если был удален
+        git checkout HEAD -- package-lock.json || true
+        # Удаляем только node_modules и переустанавливаем
+        rm -rf node_modules
+        npm install
 
     - name: Type check
       run: npm run type-check
