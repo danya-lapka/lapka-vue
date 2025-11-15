@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 import LayoutMain from '@/LayoutMain.vue'
-import PageHome from '@/pages/PageHome/PageHome.vue'
+import { PageHome, PageLinks }from '@/pages'
 
 
 const routes: RouteRecordRaw[] = [
@@ -11,6 +11,10 @@ const routes: RouteRecordRaw[] = [
       {
         path: '',
         component: PageHome
+      },
+      {
+        path: '/links',
+        component: PageLinks
       }
     ]
   }

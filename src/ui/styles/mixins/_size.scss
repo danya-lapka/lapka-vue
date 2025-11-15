@@ -17,6 +17,12 @@ $contents: (
 }
 
 @for $i from 0 through $max {
+  .wp-#{$i} {
+    width: #{$i} + "%";
+  }
+  .hp-#{$i} {
+    height: #{$i} + "%";
+  }
   .wa-#{$i} {
     width: $i * $n !important;
   }
