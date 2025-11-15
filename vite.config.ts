@@ -8,6 +8,9 @@ import svgLoader from 'vite-svg-loader'
 // https://vite.dev/config/
 export default defineConfig({
   base: '/lapka-vue/',
+  build: {
+    cssMinify: 'esbuild'
+  },
   plugins: [
     vue(),
     vueDevTools(),
