@@ -23,7 +23,10 @@ export default {
       ? [
           purgecss.default({
             content: ['./index.html', './src/**/*.{vue,ts,js}'],
-            safelist: getScssClasses(),
+            safelist: {
+              ...getScssClasses(),
+              greedy: [/svg$/, /path$/],
+            },
             defaultExtractor: content =>
               content.match(/[\w-/:%.]+(?<!:)/g) || [],
           }),
